@@ -1,0 +1,33 @@
+- name: Show directory variables
+  ansible.builtin.debug:
+    var: paths
+    verbosity: 3
+
+
+- name: Check for local settings file
+  ansible.builtin.stat:
+    path: '{{paths.sysconfdir}}/settings.yaml'
+  register: settings_yaml
+
+- name: Load local settings file
+  ansible.builtin.include_vars:
+    file: '{{paths.sysconfdir}}/settings.yaml'
+    name: settings
+  when: settings_yaml.stat.exists
+
+- name: Show local settings
+  ansible.builtin.debug:
+    var: settings
+    verbosity: 3
+
+
+- name: Check for local secrets file
+  ansible.builtin.stat:
+    path: '{{paths.sysconfdir}}/secrets.yaml'
+  register: secrets_yaml
+
+- name: Load local secrets file
+  ansible.builtin.include_vars:
+    file: '{{paths.sysconfdir}}/secrets.yaml'
+    name: secrets
+  when: secrets_yaml.stat.exists

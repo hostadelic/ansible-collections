@@ -1,0 +1,19 @@
+# The canonical purpose of these directories can be found here:
+# - `https://www.gnu.org/prep/standards/html_node/Directory-Variables.html`
+#
+# These are standard variables used in Autotools, thus the most portable and/or
+# agreed upon standard you could find.
+paths:
+  prefix: '{{playbook_dir|dirname}}'
+  exec_prefix: '{{playbook_dir|dirname}}'
+  bindir: '{{playbook_dir|dirname}}/bin'
+  sbindir: '{{playbook_dir|dirname}}/bin'
+  libexecdir: '{{playbook_dir|dirname}}/libexec'
+  datarootdir: '{{playbook_dir|dirname}}/share'
+  datadir: '{{playbook_dir|dirname}}/share'
+  sysconfdir: '{{playbook_dir|dirname}}/etc'
+  localstatedir: '{{playbook_dir|dirname}}/var'
+  sharedstatedir: '{{playbook_dir|dirname}}/com'
+  runstatedir: '{{playbook_dir|dirname}}/run'
+  libdir: '{{playbook_dir|dirname}}/lib'
+  tmpdir: '{{playbook_dir|dirname}}/tmp'
